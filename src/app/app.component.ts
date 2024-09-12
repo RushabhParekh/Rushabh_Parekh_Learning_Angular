@@ -10,4 +10,6 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'Rushabh-Parekh-Learning-Angular';
+  name:string = 'Rushabh';
+  studentNo:string = 'woi';
 }
