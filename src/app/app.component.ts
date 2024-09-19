@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import {User} from "../models/User";
+import {NgForOf} from "@angular/common";
 
 @Component({
   selector: 'app-root',
@@ -9,7 +11,5 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'Rushabh-Parekh-Learning-Angular';
-  name:string = 'Rushabh';
-  studentNo:string = 'woi';
+  user1 :
 }
