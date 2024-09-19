@@ -18,7 +18,7 @@ export class AppComponent {
   user5 : User = {id: 5, firstName: "Virat", lastName: "Patel",course: "Computer Programming", studentNo: 23696465,isAdmin: false};
   user6 : User = {id: 6, firstName: "Mahendra", lastName: "Patel",course: "Civil Enginnering", studentNo: 256465,isAdmin: false};
 
-//Putting the values in the user list
+//keeping the valuse in User list
   userList: User[]=[this.user1,this.user2,this.user3,this.user4,this.user5,this.user6]
 
 }
