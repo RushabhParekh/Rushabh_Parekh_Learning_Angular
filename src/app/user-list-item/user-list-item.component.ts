@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {User} from "../../models/User";
 
 @Component({
   selector: 'app-user-list-item',
@@ -8,5 +9,5 @@ import { Component } from '@angular/core';
   styleUrl: './user-list-item.component.css'
 })
 export class UserListItemComponent {
-
+@Input() IsAdmin?:User;
 }
