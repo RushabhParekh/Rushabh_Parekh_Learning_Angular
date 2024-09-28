@@ -1,0 +1,9 @@
+:host{
+  display: inline;
+  width: 50%;
+}
+.IsAdmin.list{
+  border: 2px;
+  padding: 5px;
+  margin-bottom: 5px;
+}
