@@ -9,5 +9,5 @@ import {User} from "../../models/User";
   styleUrl: './user-list-item.component.css'
 })
 export class UserListItemComponent {
-@Input() IsAdmin?:User;
+  @Input() User!: User;
 }
