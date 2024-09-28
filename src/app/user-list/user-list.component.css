@@ -1,9 +1,9 @@
-:host{
-  display: inline;
-  width: 50%;
+.grey-background{
+  background-color: grey;
+  color: skyblue;
 }
-.IsAdmin.list{
-  border: 2px;
-  padding: 5px;
-  margin-bottom: 5px;
+
+.purple-background{
+  background-color: purple;
+  color: khaki;
 }

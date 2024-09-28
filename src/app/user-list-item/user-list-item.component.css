@@ -1,0 +1,8 @@
+:host{
+  width: 100%;
+  display: block;
+}
+.rusbabhP{
+  display: flex;
+  flex-direction: column;
+}

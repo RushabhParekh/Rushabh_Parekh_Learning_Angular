@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {User} from "../../models/User";
-import {NgClass, NgForOf} from "@angular/common";
+import {NgClass, NgForOf, NgIf} from "@angular/common";
 import {UserListItemComponent} from "../user-list-item/user-list-item.component";
 
 @Component({
