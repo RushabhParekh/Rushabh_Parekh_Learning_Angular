@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {User} from "../../models/User";
+import {User} from "../../shared/models/User";
 import {NgClass, NgForOf, NgIf} from "@angular/common";
 import {UserListItemComponent} from "../user-list-item/user-list-item.component";
 

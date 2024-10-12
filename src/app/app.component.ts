@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import {User} from "../models/User";
+import {User} from "../shared/models/User";
 import {NgForOf, NgIf} from "@angular/common";
 import {UserListComponent} from "./user-list/user-list.component";
 
