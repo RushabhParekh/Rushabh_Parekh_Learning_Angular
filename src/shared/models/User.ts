@@ -5,4 +5,5 @@ export interface User{
   course: string,
   studentNo: number
   isAdmin?: boolean,
+  images: string;
 }

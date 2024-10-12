@@ -1,22 +1,10 @@
-<!DOCTYPE HTML>
-<html>
-<body>
-<div class="first">
-  <app-user-list></app-user-list>
-
-  <div *ngFor="let user of userList">
-    <div>
-      {{user.id}}
-      {{user.firstName}}
-      {{user.lastName}}
-      {{user.course}}
-      {{user.studentNo}}
-      {{user.isAdmin}}
-    </div>
-    <div *ngIf="user.isAdmin == true">This Class has isAdmin</div>
-    <div *ngIf="user.isAdmin == false">This Class doesnot has isAdmin</div>
-
-  </div>
+<div class="navigation">
+  <nav>
+    <a routerLink="/user3" routerLinkActive="active">UserList</a>
+    <a routerLink="/modify-list-item" routerLinkActive="active">Modify -List</a>
+  </nav>
 </div>
-</body>
-</html>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

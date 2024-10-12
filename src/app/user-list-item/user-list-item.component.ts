@@ -9,5 +9,5 @@ import {User} from "../../shared/models/User";
   styleUrl: './user-list-item.component.css'
 })
 export class UserListItemComponent {
-  @Input() User!: User;
+  @Input() User?: User;
 }

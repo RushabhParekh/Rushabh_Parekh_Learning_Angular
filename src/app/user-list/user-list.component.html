@@ -1,5 +1,28 @@
-<div class="rusbabhP">
-  <app-user-list-item *ngFor="let User of userList; let i = index"
-                      [User]= "User"
-                      [ngClass]="{'grey-background': i%2 !==0, 'purple-background': i%2 ===0}"></app-user-list-item>
-</div>//
+<div class="container">
+  <h1>User List</h1>
+  <table>
+    <thead>
+    <tr>
+      <th>id</th>
+      <th>firstName</th>
+      <th>lastName</th>
+      <th>course</th>
+      <th>studentNo</th>
+      <th>isAdmin</th>
+      <th>images</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let user of user3;">
+      <td>{{user.firstName}}</td>
+      <td>{{user.lastName}}</td>
+      <td>{{user.course}}</td>
+      <td>{{user.studentNo}}</td>
+      <td>{{user.isAdmin}}</td>
+      <td><img [src]="user.images" alt="user"></td>
+    </tr>
+    </tbody>
+  </table>
+  <app-user-list-item></app-user-list-item>
+</div>
