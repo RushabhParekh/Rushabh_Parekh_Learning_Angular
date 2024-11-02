@@ -3,6 +3,7 @@ import {User} from "../../shared/models/User";
 import {NgClass, NgForOf, NgIf} from "@angular/common";
 import {UserListItemComponent} from "../user-list-item/user-list-item.component";
 import {user3} from "../../shared/data/mockUser";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-user-list',
@@ -16,6 +17,8 @@ import {user3} from "../../shared/data/mockUser";
   styleUrl: './user-list.component.css'
 })
 export class UserListComponent {
+  user3: User[]=[];
 
-  protected readonly user3 = user3;
+  constructor(private router:Router) {
+  }
 }
