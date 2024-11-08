@@ -50,7 +50,9 @@ export class ModifyListItemComponent implements OnInit{
     // Check if we're updating an existing student
     if (user.id) {
       this.userService.updateUser(user);
-    } else {
+    }
+    else
+    {
       // For adding a new student, generate a new ID
       const newId = this.userService.generateNewId(); // This method will create a new ID
       user.id = newId;
