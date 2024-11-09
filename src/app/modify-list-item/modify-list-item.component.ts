@@ -3,12 +3,15 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/
 import {ActivatedRoute, Router} from "@angular/router";
 import {User} from "../../shared/models/User";
 import {UserService} from "../Services/user.service";
+import {NgIf} from "@angular/common";
+
 
 @Component({
   selector: 'app-modify-list-item',
   standalone: true,
   imports: [
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgIf
   ],
   templateUrl: './modify-list-item.component.html',
   styleUrl: './modify-list-item.component.css'
@@ -16,6 +19,7 @@ import {UserService} from "../Services/user.service";
 export class ModifyListItemComponent implements OnInit{
   userForm: FormGroup;
   user: User | undefined;
+  error: string|null=null;
 
   constructor(
     private fb: FormBuilder,
@@ -24,7 +28,7 @@ export class ModifyListItemComponent implements OnInit{
     private router: Router
   ) {
     this.userForm = this.fb.group({
-      id: ['', Validators.required], //ID is required
+      id: [userService.generateNewId()], //ID is required
       firstName: ['', Validators.required],//First name is required
       lastName: ['', Validators.required],
       studentNo: [''],
@@ -35,11 +39,15 @@ export class ModifyListItemComponent implements OnInit{
     ngOnInit(): void {
       const id = this.route.snapshot.paramMap.get('id');
       if (id) {
-        this.userService.getUserById(+id).subscribe(student => {
-          if(student) {
-            this.user = student;
-
-            this.userForm.patchValue(student);
+        this.userService.getUserById(id).subscribe( {
+          next: user=>{
+            if(user){
+              this.userForm.patchValue(user);
+            }
+          },
+          error: err=>{
+            this.error='Error';
+            console.error('error fetching',err)
           }
         });
       }
@@ -64,6 +72,8 @@ export class ModifyListItemComponent implements OnInit{
   navigateToStudentList(): void {
     this.router.navigate(['/user3']);
   }
+
+
 
 }
 

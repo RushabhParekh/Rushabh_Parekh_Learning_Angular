@@ -15,7 +15,7 @@ export class UserService {
     return this.http.get<User[]>(this.url).pipe(catchError(this.handleError));
   }
   //getting item by id
-  getUserById(id: number): Observable<User> {
+  getUserById(id: string): Observable<User> {
     return  this.http.get<User>(`${this.url}/${id}`).pipe(catchError(this.handleError))
   }
 
@@ -40,7 +40,7 @@ export class UserService {
     return this.users.length > 0 ? Math.max(...this.users.map(user => user.id)) + 1 : 1;
   }
   private handleError(error: HttpErrorResponse){
-    console.error('API error:', error);
+    console.error("API error:", error);
     return throwError(()=> new Error('server error, please try again'));
   }
 }

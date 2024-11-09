@@ -1,10 +1,10 @@
-<div style="border: 2px solid black; padding: 10px; margin: 10px">
-  <h2>{{User?.id}}</h2>
-
-  <p>firstName : {{User?.firstName}}</p>
-  <p>lastName : {{User?. lastName}}</p>
-  <p>course : {{User?. course}}</p>
-  <p>studentNo : {{User?. studentNo}}</p>
-  <p>isAdmin : {{User?. isAdmin}}</p>
+<div *ngIf="student" class="user" >
+  <h2>{{student.id}}</h2>
+  <p>firstName : {{student.firstName}}</p>
+  <p>lastName : {{student.lastName}}</p>
+  <p>course : {{student.course}}</p>
+  <p>studentNo : {{student.studentNo}}</p>
+  <p>isAdmin : {{student.isAdmin}}</p>
 
 </div>
+<div *ngIf="error" class="error">{{ error }}</div>
