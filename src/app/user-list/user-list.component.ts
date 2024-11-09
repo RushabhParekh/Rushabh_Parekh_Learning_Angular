@@ -3,7 +3,7 @@ import {User} from "../../shared/models/User";
 import {NgClass, NgForOf, NgIf} from "@angular/common";
 import {UserListItemComponent} from "../user-list-item/user-list-item.component";
 import {user3} from "../../shared/data/mockUser";
-import {Router} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
 import {UserService} from "../Services/user.service";
 
 @Component({
@@ -13,36 +13,39 @@ import {UserService} from "../Services/user.service";
     NgForOf,
     UserListItemComponent,
     NgClass,
-    NgIf
+    NgIf,
+    RouterLink
   ],
   templateUrl: './user-list.component.html',
   styleUrl: './user-list.component.css'
 })
-export class UserListComponent implements OnInit{
+export class UserListComponent{
   user3: User[]=[];
   error:string |null=null;
 
   constructor(private userService: UserService,private router:Router) {
   }
-  ngOnInit(){
-    //This lifecycle hook is a good place to fetch and init our data
-    this.userService.getUser().subscribe({
-      next: (data: User[]) => {
-        this.user3=data;
-        this.error=null
-      },
-      error:err => {
-        this.error = "Error fetching User"
-        console.error("Error fetching Students", err);
-      },
-      complete:() => console.log("Student data fetch complete!")
-    });
 
+  list : User[] = user3;
+  // ngOnInit(){
+  //   //This lifecycle hook is a good place to fetch and init our data
+  //   this.userService.getUser().subscribe({
+  //     next: (data: User[]) => {
+  //       this.user3=data;
+  //       this.error=null
+  //     },
+  //     error: err => {
+  //       this.error = 'Error fetching User';
+  //       console.error("Error fetching User",err);
+  //     },
+  //     complete:() => console.log("User data fetch complete!")
+  //   });
+  //
+  // }
+  delete(id: number):void{
+    this.list = this.list.filter(user => user.id !== id);
   }
-  delete(id: Number):void{
-    this.user3=this.user3.filter(user => user.id !==id);
-  }
-  edit():void{
-    this.router.navigate(['modify-list-item'])
+  edit(id:number):void{
+    this.router.navigate(['modify-list-item',id])
   }
 }

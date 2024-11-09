@@ -29,8 +29,8 @@ export class ModifyListItemComponent implements OnInit{
   ) {
     this.userForm = this.fb.group({
       id: [userService.generateNewId()], //ID is required
-      firstName: ['', Validators.required],//First name is required
-      lastName: ['', Validators.required],
+      firstName: [''],//First name is required
+      lastName: [''],
       studentNo: [''],
       course: [''],
       isAdmin: [false]
@@ -53,21 +53,20 @@ export class ModifyListItemComponent implements OnInit{
       }
     }
   onSubmit(): void {
-    const user: User = this.userForm.value;
+    if(this.userForm.valid){
+      const student:User = this.userForm.value;
+      console.log(this.userForm.value);
+      console.log(student.id);
+      if(student.id){
+        console.log("Exists id is working");
+        this.userService.updateStudent(student).subscribe(()=>this.router.navigate(['user3']));
+      }else{
+        console.log("new id is working");
+        student.id = this.userService.generateNewId();
+        this.userService.addStudent(student).subscribe(()=>this.router.navigate(['user3']));
+      }
 
-    // Check if we're updating an existing student
-    if (user.id) {
-      this.userService.updateUser(user);
     }
-    else
-    {
-      // For adding a new student, generate a new ID
-      const newId = this.userService.generateNewId(); // This method will create a new ID
-      user.id = newId;
-      this.userService.addUser(user);
-    }
-
-    this.router.navigate(['/user3']);
   }
   navigateToStudentList(): void {
     this.router.navigate(['/user3']);

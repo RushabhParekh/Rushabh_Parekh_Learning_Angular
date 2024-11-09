@@ -16,8 +16,10 @@ const routes: Routes = [
   { path: 'user3', component: UserListComponent },
   { path: 'user3/:id', component: UserListItemComponent },
   {path:'modify-list-item', component: ModifyListItemComponent},
+  {path:'modify-list-item/:id', component: ModifyListItemComponent},
   {path: '**', component:PageNotFoundComponent}
 ];
+
 bootstrapApplication(AppComponent, {
   providers: [
     provideHttpClient(), // Ensure that HTTP interceptors are properly configured

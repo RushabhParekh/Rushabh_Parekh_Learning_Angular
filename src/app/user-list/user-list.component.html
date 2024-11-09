@@ -1,7 +1,7 @@
 <div class="container">
   <h1>User List</h1>
 
-    <div class="user "*ngFor="let user of user3;">
+    <div *ngFor="let user of list" [routerLink]="['/user3',user.id]" >
       <p>ID: {{user.id}}</p>
       <p> Firstname: {{user.firstName}}</p>
       <p> lastName: {{user.lastName}}</p>
@@ -9,9 +9,11 @@
       <p> StudentNo: {{user.studentNo}}</p>
       <p> isAdmin:{{user.isAdmin}}</p>
       <button type="button" (click)="delete(user.id)">Delete</button>
-      <button type="button" (click)="edit()">Edit</button>
+      <button type="button" (click)="edit(user.id)">Edit</button>
 
 </div>
 </div>
-<div *ngIf="error" class="error">{{ error }}</div>
+
+
+
 
