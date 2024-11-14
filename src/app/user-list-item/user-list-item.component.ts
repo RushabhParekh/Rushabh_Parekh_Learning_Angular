@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {UserService} from "../Services/user.service";
 import {user3} from "../../shared/data/mockUser";
 import {CurrencyPipe, LowerCasePipe, NgIf, UpperCasePipe} from "@angular/common";
+import {StudentNamePipe} from "../pipes/student-name.pipe";
 
 
 
@@ -15,7 +16,8 @@ import {CurrencyPipe, LowerCasePipe, NgIf, UpperCasePipe} from "@angular/common"
     NgIf,
     CurrencyPipe,
     LowerCasePipe,
-    UpperCasePipe
+    UpperCasePipe,
+    StudentNamePipe
   ],
   templateUrl: './user-list-item.component.html',
   styleUrl: './user-list-item.component.css'

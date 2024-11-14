@@ -5,6 +5,7 @@ import {UserListItemComponent} from "../user-list-item/user-list-item.component"
 import {user3} from "../../shared/data/mockUser";
 import {Router, RouterLink} from "@angular/router";
 import {UserService} from "../Services/user.service";
+import {StudentNamePipe} from "../pipes/student-name.pipe";
 
 @Component({
   selector: 'app-user-list',
@@ -17,7 +18,8 @@ import {UserService} from "../Services/user.service";
     RouterLink,
     UpperCasePipe,
     CurrencyPipe,
-    LowerCasePipe
+    LowerCasePipe,
+    StudentNamePipe
   ],
   templateUrl: './user-list.component.html',
   styleUrl: './user-list.component.css'

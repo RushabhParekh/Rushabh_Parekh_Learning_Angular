@@ -3,8 +3,7 @@
 
     <div *ngFor="let user of list" [routerLink]="['/user3',user.id]" >
       <p>ID: {{user.id}}</p>
-      <p> Firstname: {{user.firstName | uppercase }}</p>
-      <p> lastName: {{user.lastName}}</p>
+      <p> Firstname: {{user | studentName | uppercase }}</p>
       <p> course: {{user.course | lowercase}}</p>
       <p> Fees: {{user.fees | currency }}</p>
       <p> StudentNo: {{user.studentNo }}</p>
