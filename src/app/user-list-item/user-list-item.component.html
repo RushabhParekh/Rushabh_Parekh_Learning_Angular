@@ -1,8 +1,9 @@
 <div *ngIf="student" class="user" >
   <h2>{{student.id}}</h2>
-  <p>firstName : {{student.firstName}}</p>
+  <p>firstName : {{student.firstName | uppercase}}</p>
   <p>lastName : {{student.lastName}}</p>
-  <p>course : {{student.course}}</p>
+  <p>course : {{student.course | lowercase}}</p>
+  <p>fees : {{student.fees| currency}}</p>
   <p>studentNo : {{student.studentNo}}</p>
   <p>isAdmin : {{student.isAdmin}}</p>
 
