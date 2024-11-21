@@ -2,40 +2,40 @@
   <!-- ID Field -->
   <div class="form-group">
     <label for="id">ID</label>
-    <input type="number" id="id" formControlName="id" />
+    <input type="number" id="id" formControlName="id" [appHighlightOnFocus]="'lightgreen'"/>
   </div>
 
   <!-- First Name Field -->
   <div class="form-group">
     <label for="firstName">First Name</label>
-    <input type="text" id="firstName" formControlName="firstName" />
+    <input type="text" id="firstName" formControlName="firstName" [appHighlightOnFocus]="'lightgreen'"/>
   </div>
 
   <!-- Last Name Field -->
   <div class="form-group">
     <label for="lastName">Last Name</label>
-    <input type="text" id="lastName" formControlName="lastName" />
+    <input type="text" id="lastName" formControlName="lastName" [appHighlightOnFocus]="'lightgreen'" />
   </div>
 
   <!-- Department Field -->
   <div class="form-group">
     <label for="course">Course</label>
-    <input type="text" id="course" formControlName="course" />
+    <input type="text" id="course" formControlName="course" [appHighlightOnFocus]="'lightgreen'" />
   </div>
 
   <div class="form-group">
     <label for="studentNo">StudentNo</label>
-    <input type="text" id="studentNo" formControlName="studentNo" />
+    <input type="text" id="studentNo" formControlName="studentNo" [appHighlightOnFocus]="'lightgreen'" />
   </div>
 
   <!-- Is Admin Checkbox -->
   <div class="form-group">
     <label for="isAdmin">Is Admin</label>
-    <input type="checkbox" id="isAdmin" formControlName="isAdmin" />
+    <input type="checkbox" id="isAdmin" formControlName="isAdmin" [appHighlightOnFocus]="'lightgreen'" />
   </div>
 
   <!-- Submit Button (Add or Update) -->
-  <button type="submit">Submit</button>
+  <button type="submit" [appHighlightOnFocus]="'lightgreen'">Submit</button>
 
 </form>
 <div *ngIf="error" class="error">{{ error }}</div>
