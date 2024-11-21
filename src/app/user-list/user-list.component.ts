@@ -6,6 +6,7 @@ import {user3} from "../../shared/data/mockUser";
 import {Router, RouterLink} from "@angular/router";
 import {UserService} from "../Services/user.service";
 import {StudentNamePipe} from "../pipes/student-name.pipe";
+import {HoverHighlightDirective} from "../directives/hover-highlight.directive";
 
 @Component({
   selector: 'app-user-list',
@@ -19,7 +20,8 @@ import {StudentNamePipe} from "../pipes/student-name.pipe";
     UpperCasePipe,
     CurrencyPipe,
     LowerCasePipe,
-    StudentNamePipe
+    StudentNamePipe,
+    HoverHighlightDirective
   ],
   templateUrl: './user-list.component.html',
   styleUrl: './user-list.component.css'
