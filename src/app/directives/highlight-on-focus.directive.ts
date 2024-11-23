@@ -7,13 +7,13 @@ import {Directive, ElementRef, HostListener, Input} from '@angular/core';
 export class HighlightOnFocusDirective {
   @Input() appHighlightOnFocus ='';
   constructor(private el: ElementRef) { }
-  @HostListener('mouseenter') onMouseEnter(){
-    this.highlight(this.appHighlightOnFocus || 'red');
+  @HostListener('focus') onfocus(){
+    this.focus(this.appHighlightOnFocus || 'red');
   }
-  @HostListener('mouseleave') onMouseLeave(){
-    this.highlight('');
+  @HostListener('blur') blur(){
+    this.focus('');
   }
-  private highlight(color: string){
+  private focus(color: string){
     this.el.nativeElement.style.backgroundColor = color;
   }
 
