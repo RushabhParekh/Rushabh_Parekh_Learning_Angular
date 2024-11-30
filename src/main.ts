@@ -17,7 +17,8 @@ import {MatIconModule} from "@angular/material/icon";
 
 const routes: Routes = [
   {path:'', redirectTo: '/user3', pathMatch: 'full'},
-  { path: 'user3', component: UserListComponent },
+  { path: 'u' +
+      'ser3', component: UserListComponent },
   { path: 'user3/:id',
   loadComponent:() =>
   import('./app/user-list-item/user-list-item.component'). then(m => m.UserListItemComponent)},
