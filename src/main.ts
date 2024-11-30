@@ -10,6 +10,10 @@ import {provideHttpClient} from "@angular/common/http";
 import {importProvidersFrom} from "@angular/core";
 import {HttpClientInMemoryWebApiModule} from "angular-in-memory-web-api";
 import {InMemoryDataService} from "./app/Services/in-memory-data.service";
+import {provideAnimationsAsync} from "@angular/platform-browser/animations/async";
+import {MatTableModule} from "@angular/material/table";
+import {MatButtonModule} from "@angular/material/button";
+import {MatIconModule} from "@angular/material/icon";
 
 const routes: Routes = [
   {path:'', redirectTo: '/user3', pathMatch: 'full'},
@@ -29,6 +33,12 @@ bootstrapApplication(AppComponent, {
   providers: [
     provideHttpClient(), // Ensure that HTTP interceptors are properly configured
     provideRouter(routes),
-    importProvidersFrom(HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 1 })) // Import providers dynamically
+    importProvidersFrom(HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {delay: 1})),
+    provideAnimationsAsync(), // Import providers dynamically
+    MatTableModule,
+    MatButtonModule,
+    MatIconModule,
   ],
+
 }).catch((err) => console.error(err));
+

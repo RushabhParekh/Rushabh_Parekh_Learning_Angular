@@ -6,6 +6,7 @@ import {user3} from "../../shared/data/mockUser";
 import {CurrencyPipe, LowerCasePipe, NgIf, UpperCasePipe} from "@angular/common";
 import {StudentNamePipe} from "../pipes/student-name.pipe";
 import {HoverHighlightDirective} from "../directives/hover-highlight.directive";
+import {MatCardModule} from "@angular/material/card";
 
 
 
@@ -19,7 +20,8 @@ import {HoverHighlightDirective} from "../directives/hover-highlight.directive";
     LowerCasePipe,
     UpperCasePipe,
     StudentNamePipe,
-    HoverHighlightDirective
+    HoverHighlightDirective,
+    MatCardModule
   ],
   templateUrl: './user-list-item.component.html',
   styleUrl: './user-list-item.component.css'

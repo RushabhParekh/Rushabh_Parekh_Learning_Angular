@@ -5,6 +5,8 @@ import {User} from "../../shared/models/User";
 import {UserService} from "../Services/user.service";
 import {NgIf} from "@angular/common";
 import {HighlightOnFocusDirective} from "../directives/highlight-on-focus.directive";
+import {MatInputModule} from "@angular/material/input";
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 
 @Component({
@@ -13,7 +15,9 @@ import {HighlightOnFocusDirective} from "../directives/highlight-on-focus.direct
   imports: [
     ReactiveFormsModule,
     NgIf,
-    HighlightOnFocusDirective
+    HighlightOnFocusDirective,
+    MatInputModule,
+    MatTooltipModule
   ],
   templateUrl: './modify-list-item.component.html',
   styleUrl: './modify-list-item.component.css'

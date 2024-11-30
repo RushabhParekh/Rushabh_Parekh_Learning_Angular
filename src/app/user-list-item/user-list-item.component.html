@@ -1,10 +1,11 @@
 <div *ngIf="student" class="user" >
-  <h2 [appHoverHighlight]="'cyan'">{{student.id}}</h2>
-  <p [appHoverHighlight]="'cyan'">Student Full Name : {{student | studentName | uppercase}}</p>
-  <p [appHoverHighlight]="'cyan'">course : {{student.course | lowercase}}</p>
-  <p [appHoverHighlight]="'cyan'">fees : {{student.fees| currency}}</p>
-  <p [appHoverHighlight]="'cyan'">studentNo : {{student.studentNo}}</p>
-  <p [appHoverHighlight]="'cyan'">isAdmin : {{student.isAdmin}}</p>
-
+  <mat-card class="user-card">
+    <mat-card-title>Student List </mat-card-title>
+  <mat-card-content [appHoverHighlight]="'cyan'">ID: {{student.id}}</mat-card-content>
+  <mat-card-content [appHoverHighlight]="'cyan'">Student Full Name : {{student | studentName | uppercase}}</mat-card-content>
+  <mat-card-content [appHoverHighlight]="'cyan'">course : {{student.course | lowercase}}</mat-card-content>
+  <mat-card-content [appHoverHighlight]="'cyan'">fees : {{student.fees| currency}}</mat-card-content>
+    <mat-card-content [appHoverHighlight]="'cyan'">studentNo : {{student.studentNo}}</mat-card-content>
+  </mat-card>
 </div>
 

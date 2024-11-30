@@ -1,9 +1,5 @@
-.grey-background{
-  background-color: black;
-  color: skyblue;
+.button-group {
+  display: flex;
+  gap: 1rem;
 }
 
-.purple-background{
-  background-color: purple;
-  color: khaki;
-}

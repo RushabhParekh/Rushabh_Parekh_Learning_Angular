@@ -1,17 +1,18 @@
-<div class="container">
+<div class="mat-container">
   <h1>User List</h1>
 
-    <div *ngFor="let user of list" [routerLink]="['/user3',user.id]" [appHoverHighlight]="'lightblue'">
-      <p>ID: {{user.id}}</p>
-      <p> Student Full Name : {{user | studentName | uppercase }}</p>
-      <p> course: {{user.course | lowercase}}</p>
-      <p> Fees: {{user.fees | currency }}</p>
-      <p> StudentNo: {{user.studentNo }}</p>
-      <p> isAdmin:{{user.isAdmin}}</p>
-      <button type="button" (click)="delete(user.id)" [appHoverHighlight]="'red'">Delete</button>
-      <button type="button" (click)="edit(user.id)" [appHoverHighlight]="'red'">Edit</button>
+    <mat-list *ngFor="let user of list" [routerLink]="['/user3',user.id]" [appHoverHighlight]="'lightblue'" role="list">
+      <mat-list-item>ID: {{user.id}}</mat-list-item>
+      <mat-list-item> Student Full Name : {{user | studentName | uppercase }}</mat-list-item>
+      <mat-list-item> course: {{user.course | lowercase}}</mat-list-item>
+      <mat-list-item> Fees: {{user.fees | currency }}</mat-list-item>
+      <mat-list-item> StudentNo: {{user.studentNo }}</mat-list-item>
+      <mat-list-item> isAdmin:{{user.isAdmin}}</mat-list-item>
+      <button mat-raised-button color="primary" type="button" (click)="delete(user.id)" [appHoverHighlight]="'red'">Delete</button>
+      <button  mat-raised-button color="primary" type="button" (click)="edit(user.id)" [appHoverHighlight]="'red'">Edit</button>
 
-</div>
+</mat-list>
+  <div *ngIf="error" class="error mat-error">{{ error }}</div>
 </div>
 
 

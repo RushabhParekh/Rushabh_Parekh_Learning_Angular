@@ -1,41 +1,44 @@
-<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="mat-form">
   <!-- ID Field -->
-  <div class="form-group">
-    <label for="id">ID</label>
-    <input type="number" id="id" formControlName="id" [appHighlightOnFocus]="'lightgreen'"/>
-  </div>
+
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>ID</mat-label>
+    <input matInput type="number" formControlName="id" [appHighlightOnFocus]="'lightgreen'" matTooltip = "id"/>
+  </mat-form-field>
 
   <!-- First Name Field -->
-  <div class="form-group">
-    <label for="firstName">First Name</label>
-    <input type="text" id="firstName" formControlName="firstName" [appHighlightOnFocus]="'lightgreen'"/>
-  </div>
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>First Name</mat-label>
+    <input matInput type="text" formControlName="firstName" [appHighlightOnFocus]="'lightgreen'" />
+  </mat-form-field>
 
   <!-- Last Name Field -->
-  <div class="form-group">
-    <label for="lastName">Last Name</label>
-    <input type="text" id="lastName" formControlName="lastName" [appHighlightOnFocus]="'lightgreen'" />
-  </div>
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>Last Name</mat-label>
+    <input matInput type="text" formControlName="lastName" [appHighlightOnFocus]="'lightgreen'" />
+  </mat-form-field>
 
   <!-- Department Field -->
-  <div class="form-group">
-    <label for="course">Course</label>
-    <input type="text" id="course" formControlName="course" [appHighlightOnFocus]="'lightgreen'" />
-  </div>
 
-  <div class="form-group">
-    <label for="studentNo">StudentNo</label>
-    <input type="text" id="studentNo" formControlName="studentNo" [appHighlightOnFocus]="'lightgreen'" />
-  </div>
+
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>Course</mat-label>
+    <input matInput type="text" formControlName="course" [appHighlightOnFocus]="'lightgreen'" />
+  </mat-form-field>
+
+
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>StudentNo</mat-label>
+    <input matInput type="text" formControlName="studentNo" [appHighlightOnFocus]="'lightgreen'" />
+  </mat-form-field>
 
   <!-- Is Admin Checkbox -->
-  <div class="form-group">
-    <label for="isAdmin">Is Admin</label>
-    <input type="checkbox" id="isAdmin" formControlName="isAdmin" [appHighlightOnFocus]="'lightgreen'" />
-  </div>
-
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>Is Admin</mat-label>
+    <input matInput type="checkbox" formControlName="isAdmin" [appHighlightOnFocus]="'lightgreen'" />
+  </mat-form-field>
   <!-- Submit Button (Add or Update) -->
-  <button type="submit" [appHighlightOnFocus]="'lightgreen'">Submit</button>
+  <button mat-raised-button color="primary" type="submit" [appHighlightOnFocus]="'lightgreen'">Submit</button>
 
 </form>
 <div *ngIf="error" class="error">{{ error }}</div>
