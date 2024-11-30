@@ -1,10 +1,13 @@
-<div class="navigation">
-  <nav>
-    <a routerLink="/user3" routerLinkActive="active">UserList</a>
-    <a routerLink="/modify-list-item" routerLinkActive="active">Modify -List</a>
-  </nav>
-</div>
+<mat-toolbar color="primary">
+  <span>Student System</span>
+  <span class="spacer"></span>
+  <button mat-button routerLink="/user3" routerLinkActive="active">Student List</button>
+  <button mat-button routerLink="/modify-list-item" routerLinkActive="active">Modify Student</button>
+</mat-toolbar>
 
-<div class="container">
+<div class="app-container">
+  <h1>{{ title }}</h1>
+
+  <!--router outlet to display routed components -->
   <router-outlet></router-outlet>
 </div>
