@@ -7,6 +7,7 @@ import {NgIf} from "@angular/common";
 import {HighlightOnFocusDirective} from "../directives/highlight-on-focus.directive";
 import {MatInputModule} from "@angular/material/input";
 import {MatTooltipModule} from "@angular/material/tooltip";
+import {MatButtonModule} from "@angular/material/button";
 
 
 @Component({
@@ -17,7 +18,8 @@ import {MatTooltipModule} from "@angular/material/tooltip";
     NgIf,
     HighlightOnFocusDirective,
     MatInputModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatButtonModule
   ],
   templateUrl: './modify-list-item.component.html',
   styleUrl: './modify-list-item.component.css'

@@ -9,13 +9,13 @@
   <!-- First Name Field -->
   <mat-form-field appearance="outline" class="form-field">
     <mat-label>First Name</mat-label>
-    <input matInput type="text" formControlName="firstName" [appHighlightOnFocus]="'lightgreen'" />
+    <input matInput type="text" formControlName="firstName" [appHighlightOnFocus]="'lightgreen'" matTooltip = "firstName" />
   </mat-form-field>
 
   <!-- Last Name Field -->
   <mat-form-field appearance="outline" class="form-field">
     <mat-label>Last Name</mat-label>
-    <input matInput type="text" formControlName="lastName" [appHighlightOnFocus]="'lightgreen'" />
+    <input matInput type="text" formControlName="lastName" [appHighlightOnFocus]="'lightgreen'" matTooltip = "lastName"/>
   </mat-form-field>
 
   <!-- Department Field -->
@@ -23,19 +23,19 @@
 
   <mat-form-field appearance="outline" class="form-field">
     <mat-label>Course</mat-label>
-    <input matInput type="text" formControlName="course" [appHighlightOnFocus]="'lightgreen'" />
+    <input matInput type="text" formControlName="course" [appHighlightOnFocus]="'lightgreen'" matTooltip = "course"/>
   </mat-form-field>
 
 
   <mat-form-field appearance="outline" class="form-field">
     <mat-label>StudentNo</mat-label>
-    <input matInput type="text" formControlName="studentNo" [appHighlightOnFocus]="'lightgreen'" />
+    <input matInput type="text" formControlName="studentNo" [appHighlightOnFocus]="'lightgreen'" matTooltip = "studentNo"/>
   </mat-form-field>
 
   <!-- Is Admin Checkbox -->
   <mat-form-field appearance="outline" class="form-field">
     <mat-label>Is Admin</mat-label>
-    <input matInput type="checkbox" formControlName="isAdmin" [appHighlightOnFocus]="'lightgreen'" />
+    <input matInput type="checkbox" formControlName="isAdmin" [appHighlightOnFocus]="'lightgreen'" matTooltip = "isAdmin"/>
   </mat-form-field>
   <!-- Submit Button (Add or Update) -->
   <button mat-raised-button color="primary" type="submit" [appHighlightOnFocus]="'lightgreen'">Submit</button>
