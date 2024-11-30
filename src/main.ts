@@ -14,7 +14,7 @@ import {provideAnimationsAsync} from "@angular/platform-browser/animations/async
 import {MatTableModule} from "@angular/material/table";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
-
+//name Rushabh PArekh
 const routes: Routes = [
   {path:'', redirectTo: '/user3', pathMatch: 'full'},
   { path: 'u' +
