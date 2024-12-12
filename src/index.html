@@ -11,3 +11,202 @@
   <app-root></app-root>
 </body>
 </html>
+
+
+/*
+
+2)add a nav bar in the app.component.html
+
+<!-- Navigation bar for linking to different routes -->
+<nav>
+  <ul>
+    <!-- Link to the Cat List component -->
+    <li><a routerLink="/cat-list">Cat List</a></li>
+    <!-- Link to the Modify Cat Form component -->
+    <li><a routerLink="/modify-cat">Modify Cat Form</a></li>
+  </ul>
+</nav>
+<!-- This displays the currently active component -->
+<router-outlet></router-outlet>
+
+3) create a new pipes
+good kitty pipes 
+// Import necessary modules for creating a custom pipe
+import { Pipe, PipeTransform } from '@angular/core';
+
+// Define a custom pipe named 'goodKitty'
+@Pipe({
+  name: 'goodKitty'
+})
+export class GoodKittyPipe implements PipeTransform {
+  // The transform method defines how the input value is modified
+  transform(isGoodKitty: boolean): string {
+    // If the boolean is true, display "This is a good kitty!" 
+    // Otherwise, display "All cats are good cats"
+    return isGoodKitty ? 'This is a good kitty!' : 'All cats are good cats';
+  }
+}
+
+default picture pipes-
+// Import necessary modules for creating a custom pipe
+import { Pipe, PipeTransform } from '@angular/core';
+
+// Define a custom pipe named 'defaultPicture'
+@Pipe({
+  name: 'defaultPicture'
+})
+export class DefaultPicturePipe implements PipeTransform {
+  // The transform method defines how the input value is modified
+  transform(picture: string | null): string {
+    // If the picture URL is null or empty, return the default picture path
+    return picture || 'assets/Public/DefaultPicture.png';
+  }
+}
+
+4) highlight good kitty
+// Import necessary modules for creating a directive
+import { Directive, ElementRef, Input, Renderer2, OnChanges } from '@angular/core';
+
+// Define a directive named 'appHighlightGoodKitties'
+@Directive({
+  selector: '[appHighlightGoodKitties]'
+})
+export class HighlightGoodKittiesDirective implements OnChanges {
+  // Input property to receive whether the cat is "good"
+  @Input() isGoodKitty!: boolean;
+
+  constructor(private el: ElementRef, private renderer: Renderer2) {}
+
+  // React to changes in the input property
+  ngOnChanges(): void {
+    // If the cat is "good," set a green background color
+    if (this.isGoodKitty) {
+      this.renderer.setStyle(this.el.nativeElement, 'background-color', 'lightgreen');
+    } else {
+      // Remove the background color if the cat is not "good"
+      this.renderer.removeStyle(this.el.nativeElement, 'background-color');
+    }
+  }
+}
+
+flas h backgrounnd - 
+// Import necessary modules for creating a directive
+import { Directive, ElementRef, HostListener } from '@angular/core';
+
+// Define a directive named 'appFlashBackground'
+@Directive({
+  selector: '[appFlashBackground]'
+})
+export class FlashBackgroundDirective {
+  // Array of colors to choose from for the flashing effect
+  private colors = ['red', 'blue', 'yellow', 'green', 'purple'];
+
+  constructor(private el: ElementRef) {}
+
+  // Listen for the mouseenter event
+  @HostListener('mouseenter') onMouseEnter() {
+    // Pick a random color from the array and apply it as the background color
+    const randomColor = this.colors[Math.floor(Math.random() * this.colors.length)];
+    this.el.nativeElement.style.backgroundColor = randomColor;
+  }
+
+  // Listen for the mouseleave event
+  @HostListener('mouseleave') onMouseLeave() {
+    // Reset the background color when the mouse leaves
+    this.el.nativeElement.style.backgroundColor = null;
+  }
+}
+
+5 ) // Import necessary modules for working with reactive forms
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+// Define the Modify Cat Component
+@Component({
+  selector: 'app-modify-cat',
+  templateUrl: './modify-cat.component.html',
+  styleUrls: ['./modify-cat.component.css']
+})
+export class ModifyCatComponent implements OnInit {
+  // Define a FormGroup for managing the form state
+  catForm!: FormGroup;
+
+  constructor(private fb: FormBuilder) {}
+
+  // Initialize the reactive form
+  ngOnInit(): void {
+    // Use FormBuilder to create the form with fields and validations
+    this.catForm = this.fb.group({
+      name: ['', Validators.required], // Name is required
+      age: ['', Validators.required],  // Age is required
+      breed: ['', Validators.required], // Breed is required
+      isGoodKitty: [false]             // Default value for "isGoodKitty"
+    });
+  }
+
+  // Handle form submission
+  onSubmit(): void {
+    // Log the form data if the form is valid
+    if (this.catForm.valid) {
+      console.log(this.catForm.value);
+    }
+  }
+}
+
+form html
+<!-- Define a form bound to the reactive FormGroup -->
+<form [formGroup]="catForm" (ngSubmit)="onSubmit()">
+  <!-- Input for the cat's name -->
+  <label>
+    Name:
+    <input formControlName="name" />
+  </label>
+  <!-- Input for the cat's age -->
+  <label>
+    Age:
+    <input formControlName="age" type="number" />
+  </label>
+  <!-- Input for the cat's breed -->
+  <label>
+    Breed:
+    <input formControlName="breed" />
+  </label>
+  <!-- Checkbox to specify if the cat is a "good kitty" -->
+  <label>
+    Is Good Kitty:
+    <input formControlName="isGoodKitty" type="checkbox" />
+  </label>
+  <!-- Submit button, disabled if the form is invalid -->
+  <button type="submit" [disabled]="catForm.invalid">Submit</button>
+</form>
+6) # Install Angular Material and configure it
+ng add @angular/material
+6.2) 
+<!-- Use Angular Material components for the form -->
+<form [formGroup]="catForm" (ngSubmit)="onSubmit()">
+  <!-- Material input field for the cat's name -->
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name" />
+  </mat-form-field>
+
+  <!-- Material input field for the cat's age -->
+  <mat-form-field>
+    <mat-label>Age</mat-label>
+    <input matInput type="number" formControlName="age" />
+  </mat-form-field>
+
+  <!-- Material input field for the cat's breed -->
+  <mat-form-field>
+    <mat-label>Breed</mat-label>
+    <input matInput formControlName="breed" />
+  </mat-form-field>
+
+  <!-- Material checkbox for "is good kitty" -->
+  <mat-checkbox formControlName="isGoodKitty">Is Good Kitty</mat-checkbox>
+
+  <!-- Material button for submitting the form -->
+  <button mat-raised-button color="primary" [disabled]="catForm.invalid">Submit</button>
+</form>
+
+*/
